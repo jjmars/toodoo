@@ -1,0 +1,9 @@
+<div class="task">
+  <h3 class="inline-block"><%= task.title %></h3>
+  <div class="inline-block right-aligned">
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <p><small><%= l(task.deadline, format: :short) %></small></p>
+  <p class="task_description"><%= task.description %></p>
+</div>

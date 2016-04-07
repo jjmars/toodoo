@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>TooDoo</h1>
+
+<%#= link_to 'New Task', new_task_path %>
+
+<div>
+  <button id="show_new_task">New Task</button>
+</div>
+
+<div id="new_task">
+  <%= render 'remote_form' %>
+</div>
+
+<div id="test"></div>
+
+<div class="container">
+  
+  <div id="todo" class="board">
+    <h2 class="inline-block">To Do</h1>
+    
+    <div class="tasks">
+      <% @todo.each do |task| %>
+      <%= render 'task', task: task %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div id="doin" class="board">
+    <h2 class="inline-block">Doing</h1>
+    
+    <% @doin.each do |task| %>
+    <div class="task">
+      <h3 class="inline-block"><%= task.title %></h3>
+      <div class="inline-block right-aligned">
+        <%= link_to 'Edit', edit_task_path(task) %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <p><small><%= l(task.deadline, format: :short) %></small></p>
+      <p class="task_description"><%= task.description %></p>
+    </div>
+    <% end %>
+  </div>
+
+  <div id="done" class="board">
+    <h2>Done</h1>
+    
+    <% @done.each do |task| %>
+    <div class="task">
+      <h3><%= task.title %></h3>
+      <span>
+        <%= link_to 'Edit', edit_task_path(task) %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
+      <p><small><%= l(task.deadline) %></small></p>
+      <p class="task_description"><%= task.description %></p>
+    </div>
+    <% end %>
+  </div>
+  
+</div>
+
+<br>
+
