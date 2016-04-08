@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+# animate.css for rails. Read more: https://github.com/camelmasa/animate-railsbu
+gem "animate-rails"
+# The font-awesome font bundled as an asset for the rails asset pipeline. Read more: https://github.com/bokmann/font-awesome-rails
+gem "font-awesome-rails"
+# Official Sass port of Bootstrap 2 and 3. Read more: https://github.com/twbs/bootstrap-sass
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Repository for collecting Locale data for Ruby on Rails I18n. Read more: https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
 

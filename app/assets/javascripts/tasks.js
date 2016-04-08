@@ -5,24 +5,7 @@
 // Leia mais: http://guides.rubyonrails.org/working_with_javascript_in_rails.html#page-change-events
 // Trocar $(document).ready(function() {...}) por $(document).on('page:change', function() {...})
 $(document).on('page:change', function() {
-  $('#new_task').hide();
   $('.task_description').hide();
-  
-  $('#show_new_task').click(function(e) {
-    e.preventDefault();
-    
-    let newTaskIsVisible = $('#new_task').is(':visible')
-    if (newTaskIsVisible) {
-      // Se o form está visível, FECHA o form e coloca texto do botão para ABRIR
-      $(this).text('New Task');
-      $('#new_task').hide();
-    } else {
-      // Se o form NÃO está visível, ABRE o form e coloca texto do botão para FECHAR
-      $(this).text('Close');
-      $('#new_task').show();
-      $('#task_title').focus();
-    }
-  });
 
   $('form')
     .on('submit', function() {
@@ -31,6 +14,7 @@ $(document).on('page:change', function() {
     .on('ajax:success', function(e, data, status, xhr) {
       $('#task_title').val('');
       $('#task_description').val('');
+      $('#task_title').focus();
     })
     .on('ajax:error', function(e, xhr, status, error) {
       let errors = JSON.parse(xhr.responseText);

@@ -9,7 +9,22 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+
+@import "animate";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-hero";
+@import "font-awesome";
+@import "tasks";
+
+@font-face {
+  font-family: 'Slabo 27px';
+  src: url('/assets/Slabo27px-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Slabo 27px', serif;
+}
