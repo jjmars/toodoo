@@ -8,8 +8,8 @@
   padding: 10px;
 }
 
-.board {
-  height: 80vh;
+.tasks {
+  height: 70vh;
   overflow-y: scroll;
 }
 
@@ -19,4 +19,10 @@
 
 div.right-aligned {
   float: right;
+}
+
+form {
+  @media (min-width: $screen-sm-min) {
+    float: right !important;
+  }
 }

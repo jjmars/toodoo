@@ -12,15 +12,15 @@ $(document).on('page:change', function() {
       $('.field_with_errors').remove();
     })
     .on('ajax:success', function(e, data, status, xhr) {
+      $('#task_deadline').val('');
       $('#task_title').val('');
-      $('#task_description').val('');
       $('#task_title').focus();
     })
     .on('ajax:error', function(e, xhr, status, error) {
       let errors = JSON.parse(xhr.responseText);
       Object.keys(errors).forEach(function(attr) {
         errors[attr].forEach(function(error) {
-          $('#task_' + attr).after('<div class="field_with_errors"><small>' + error + '</small></div>');
+          $('#task_' + attr).after('<div class="field_with_errors"><small class="text-danger">' + error + '</small></div>');
         })
       });
     });

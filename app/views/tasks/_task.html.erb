@@ -2,12 +2,12 @@
   <div class="panel-heading clearfix">
     <h3 class="inline-block panel-title"><%= task.title %></h3>
     <div class="inline-block right-aligned">
-      <% if task.status < 2 %>
-        <%= link_to_update_status(task) %>
-      <% end %>
-      
+      <%= link_to_update_status(task) if task.status < 2 %>
       <%= link_to_delete_task(task) %>
     </div>
+    <% if !task.deadline.blank? %>
+      <br><small class="text-warning"><%= l(task.deadline, format: :short) %></small>
+    <% end %>
   </div>
   <% if !task.description.blank? %>
   <div class="panel-body">
