@@ -1,1 +1,4 @@
-$("#task_<%= @task.id %>").remove();
+$("#task_<%= @task.id %>").slideUp();
+setTimeout(function() {
+  $("#task_<%= @task.id %>").remove();
+}, 500);

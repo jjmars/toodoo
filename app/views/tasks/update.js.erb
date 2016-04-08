@@ -1,0 +1,4 @@
+$("#task_<%= @task.id %>").remove();
+<% board = (@task.status == 1) ? '#doin' : '#done' %>
+$("<%= escape_javascript(render @task) %>").addClass('headShake animated').prependTo("<%= board %> .tasks");
+

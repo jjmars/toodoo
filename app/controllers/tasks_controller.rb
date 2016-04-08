@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :increment_status]
 
   # GET /tasks
   # GET /tasks.json
@@ -49,6 +49,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.js   { }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }

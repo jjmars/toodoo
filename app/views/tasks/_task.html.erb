@@ -2,9 +2,11 @@
   <div class="panel-heading clearfix">
     <h3 class="inline-block panel-title"><%= task.title %></h3>
     <div class="inline-block right-aligned">
-      <%= link_to task, class: 'btn btn-xs btn-danger', method: :delete, remote: true, data: { confirm: 'Are you sure?', disable_with: '<i class="fa fa-refresh fa-spin"></i>' }, :'sr-only' => 'Delete' do %>
-        <i class="fa fa-trash"></i>
+      <% if task.status < 2 %>
+        <%= link_to_update_status(task) %>
       <% end %>
+      
+      <%= link_to_delete_task(task) %>
     </div>
   </div>
   <% if !task.description.blank? %>
