@@ -1,39 +1,25 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :increment_status]
-
+  before_action :set_task, only: [:update, :destroy]
+  # before_action :set_owner
+  
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks = @owner.tasks.order(created_at: :desc)
     @todo = @tasks.reject { |task| task.status != 0 }
     @doin = @tasks.reject { |task| task.status != 1 }
     @done = @tasks.reject { |task| task.status != 2 }
-  end
-
-  # GET /tasks/1
-  # GET /tasks/1.json
-  def show
-  end
-
-  # GET /tasks/new
-  def new
-    @task = Task.new do |t|
-      t.status = 0
-    end
-  end
-
-  # GET /tasks/1/edit
-  def edit
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.owner = @owner # definido em application_controller.rb
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to tasks_url }
         format.js   { }
         format.json { render :show, status: :created, location: @task }
       else
@@ -48,7 +34,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to tasks_url }
         format.js   { }
         format.json { render :show, status: :ok, location: @task }
       else
@@ -63,20 +49,33 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to tasks_url }
       format.js   { }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_task
       @task = Task.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :status, :deadline, :user_id)
+      params.require(:task).permit(:title, :description, :status, :deadline)
     end
+  
+    # def set_owner
+    #   logger.debug 'SET_OWNER'
+    #   if session['owner_id'].blank?
+    #     logger.debug 'BLANK'
+    #     @owner = Guest.create()
+    #     session['owner_id']   = @owner.id
+    #     session['owner_type'] = @owner.class
+    #   else
+    #     logger.debug 'NOT BLANK'
+    #     @owner = Guest.find(session['owner_id']) # quando houver outros tipos de owner, será preciso usar switch no owner_type
+    #   end
+    # end
+    
 end

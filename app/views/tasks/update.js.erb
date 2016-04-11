@@ -1,4 +1,5 @@
+<% board_id = (@task.status == 1) ? '#doin' : '#done' %>
 $("#task_<%= @task.id %>").remove();
-<% board = (@task.status == 1) ? '#doin' : '#done' %>
-$("<%= escape_javascript(render @task) %>").addClass('headShake animated').prependTo("<%= board %> .tasks");
+$("<%= board_id %> .alert").remove();
+$("<%= escape_javascript(render @task) %>").addClass('headShake animated').prependTo("<%= board_id %> .tasks");
 

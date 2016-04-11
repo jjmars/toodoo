@@ -7,14 +7,6 @@ gem "font-awesome-rails"
 # Official Sass port of Bootstrap 2 and 3. Read more: https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '~> 3.3.6'
 
-# Repository for collecting Locale data for Ruby on Rails I18n. Read more: https://github.com/svenfuchs/rails-i18n
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
-
-# Flexible authentication solution for Rails with Warden. Read more: https://github.com/plataformatec/devise
-gem 'devise'
-# Translations for the devise gem. Read more: https://github.com/tigrish/devise-i18n
-gem 'devise-i18n'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record

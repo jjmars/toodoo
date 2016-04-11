@@ -1,1 +1,2 @@
+$('#todo .alert').remove();
 $("<%= escape_javascript(render @task) %>").hide().prependTo("#todo .tasks").slideDown();

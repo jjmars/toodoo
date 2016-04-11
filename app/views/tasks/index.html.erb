@@ -1,13 +1,9 @@
-<!-- <div class="row"> -->
-  <p id="notice"><%= notice %></p>
-<!-- </div> -->
-
 <div class="row">
   <div class="col-sm-4">
     <h1>
       <strong>TooDoo</strong>
       <i class="fa fa-flag text-primary"></i>
-      <small class="hidden-xs hidden-sm hidden-md">quick-n-dirty to-do list</small>
+      <small class="hidden-xs hidden-sm hidden-md">neat to-do list</small>
     </h1>
   </div>
   
@@ -21,16 +17,20 @@
 <div class="row">
   
   <div id="todo" class="board col-sm-4">
-      <h2 class="inline-block">
-        <small><i class="fa fa-clock-o text-warning"></i></small>
-        To Do
-      </h1>
-    
-      <div class="tasks">
-        <% @todo.each do |task| %>
-        <%= render task %>
-        <% end %>
+    <h2 class="inline-block">
+      <small><i class="fa fa-clock-o text-warning"></i></small>
+      To Do
+    </h1>
+
+    <div class="tasks">
+      <% if @todo.count == 0 %>
+      <div class="alert alert-warning">
+        <p><strong>No tasks to do...</strong> Create a new task in the form above</p>
       </div>
+      <% else %>
+      <%= render :partial => "task", :collection => @todo, :as => :task %>
+      <% end %>
+    </div>
   </div>
   
   <div id="doin" class="board col-sm-4">
@@ -40,8 +40,12 @@
     </h2>
     
     <div class="tasks">
-      <% @doin.each do |task| %>
-      <%= render task %>
+      <% if @doin.count == 0 %>
+      <div class="alert alert-info">
+        <p><strong>Doing no tasks...</strong> Start a task in "To Do"</p>
+      </div>
+      <% else %>
+      <%= render :partial => "task", :collection => @doin, :as => :task %>
       <% end %>
     </div>
   </div>
@@ -53,8 +57,12 @@
     </h2>
     
     <div class="tasks">
-      <% @done.each do |task| %>
-      <%= render task %>
+      <% if @done.count == 0 %>
+      <div class="alert alert-success">
+        <p><strong>No tasks done...</strong> Finish a task in "Doing"</p>
+      </div>
+      <% else %>
+      <%= render :partial => "task", :collection => @done, :as => :task %>
       <% end %>
     </div>
   </div>

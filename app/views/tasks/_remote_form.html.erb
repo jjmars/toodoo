@@ -1,5 +1,7 @@
 <% selected_status ||= 0 %>
 <%= form_for(:task, url: tasks_path, remote: true, html: { class: 'form-inline' } ) do |f| %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= f.hidden_field :status, value: selected_status %>
   <div class="form-group">
     <%= f.label :title, 'New Task' %><br>
     <%= f.text_field :title, class: 'form-control', size: 15, placeholder: 'e.g.: Bake cookies' %>
@@ -8,7 +10,6 @@
     <%= f.label :deadline %><br>
     <%= f.datetime_local_field :deadline, class: 'form-control', size: 25, placeholder: 'e.g.: 31/12/2016 23:30' %>
   </div>
-  <%= f.hidden_field :status, value: selected_status %>
   <div class="form-group" style="margin-top:24px">
     <%= f.submit 'Add', class: 'btn btn-primary', data: { disable_with: 'Add' } %>
   </div>
