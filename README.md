@@ -18,17 +18,25 @@ Tests will be built as soon as the app becomes real -- it's being sculpted
 Deployment
 ---
 
-Before deploying to production, deploy to staging. Commit to `release` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo-staging.herokuapp.com). Migrate the database schema if needed.
+Before deploying to production, deploy to staging:
 
-Fix any issues that arise. When the app is ready, deploy to production. Commit to `master` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo.herokuapp.com). Migrate the database schema if needed.
+* Commit to `release`
+* Open Heroku dashboard and deploy to [http://apptoodoo-staging.herokuapp.com](http://apptoodoo-staging.herokuapp.com)
+* Migrate the database schema if needed
+
+Fix any issues that arise. When the app is ready, deploy to production:
+
+* Commit to `master`
+* Open Heroku dashboard and deploy to [http://apptoodoo.herokuapp.com](http://apptoodoo.herokuapp.com).
+* Migrate the database schema if needed
 
 Versioning
 ---
 
-* Commit **production** versions to `master`. **THE COMMIT WILL BE DEPLOYED AUTOMATICALLY TO PRODUCTION.**
-* Commit **staging** versions to `release`. **THE COMMIT WILL BE DEPLOYED AUTOMATICALLY TO STAGING.**
-* Commit complete features to `develop`.
-* Commit features in progress **locally** to any other branch. **DON'T PUSH THESE TO ORIGIN.**
+* Commit complete features to `develop`
+* Commit **staging** versions to `release`
+* Commit **production** versions to `master`
+* Commit features-in-progress **locally** to any other branch. **DON'T PUSH THESE TO ORIGIN.**
 
 License
 ---
