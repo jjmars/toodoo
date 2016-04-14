@@ -18,9 +18,9 @@ Tests will be built as soon as the app becomes real -- it's being sculpted
 Deployment
 ---
 
-Before deploying to production, deploy to staging. Commit to `release` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo-staging.herokuapp.com).
+Before deploying to production, deploy to staging. Commit to `release` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo-staging.herokuapp.com). Migrate the database schema if needed.
 
-Fix any issues that arise. When the app is ready, deploy to production. Commit to `master` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo.herokuapp.com).
+Fix any issues that arise. When the app is ready, deploy to production. Commit to `master` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo.herokuapp.com). Migrate the database schema if needed.
 
 Versioning
 ---
