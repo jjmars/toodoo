@@ -18,14 +18,17 @@ Tests will be built as soon as the app becomes real -- it's being sculpted
 Deployment
 ---
 
-Commit to `master` and the app will be deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo.herokuapp.com) automatically.
+Before deploying to production, deploy to staging. Commit to `release` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo-staging.herokuapp.com).
+
+Fix any issues that arise. When the app is ready, deploy to production. Commit to `master` and the app will be automatically deployed to [http://apptoodoo.herokuapp.com](http://apptoodoo.herokuapp.com).
 
 Versioning
 ---
 
-* Commit final versions to `master`. **THE COMMIT WILL BE DEPLOYED AUTOMATICALLY.**
-* Commit final features to `develop`.
-* Commit features in progress to `dev-*`.
+* Commit **production** versions to `master`. **THE COMMIT WILL BE DEPLOYED AUTOMATICALLY TO PRODUCTION.**
+* Commit **staging** versions to `release`. **THE COMMIT WILL BE DEPLOYED AUTOMATICALLY TO STAGING.**
+* Commit complete features to `develop`.
+* Commit features in progress **locally** to any other branch. **DON'T PUSH THESE TO ORIGIN.**
 
 License
 ---
