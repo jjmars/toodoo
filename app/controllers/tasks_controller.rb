@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:update, :destroy]
-  # before_action :set_owner
+  before_action :set_owner
   
   # GET /tasks
   # GET /tasks.json
@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    @task.owner = @owner # definido em application_controller.rb
+    @task.owner = @owner
 
     respond_to do |format|
       if @task.save
@@ -64,18 +64,14 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :description, :status, :deadline)
     end
-  
-    # def set_owner
-    #   logger.debug 'SET_OWNER'
-    #   if session['owner_id'].blank?
-    #     logger.debug 'BLANK'
-    #     @owner = Guest.create()
-    #     session['owner_id']   = @owner.id
-    #     session['owner_type'] = @owner.class
-    #   else
-    #     logger.debug 'NOT BLANK'
-    #     @owner = Guest.find(session['owner_id']) # quando houver outros tipos de owner, será preciso usar switch no owner_type
-    #   end
-    # end
+    
+    def set_owner
+      if session['owner_id']
+        @owner = Guest.find(session['owner_id'])
+      else
+        @owner = Guest.create()
+        session['owner_id'] = @owner.id
+      end
+    end
     
 end
