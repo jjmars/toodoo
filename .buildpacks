@@ -1,0 +1,6 @@
+# When you `git push heroku`, Heroku’s slug compiler prepares your 
+# code for execution by the Heroku dyno manager. At the heart of the 
+# slug compiler is a collection of scripts called a buildpack.
+
+https://github.com/heroku/heroku-buildpack-ruby.git
+https://github.com/gunpowderlabs/buildpack-ruby-db-migrate.git

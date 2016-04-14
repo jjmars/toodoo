@@ -17,11 +17,11 @@ $(document).on('page:change', function() {
       $('#task_title').focus();
     })
     .on('ajax:error', function(e, xhr, status, error) {
-      let errors = JSON.parse(xhr.responseText);
+      var errors = JSON.parse(xhr.responseText);
       Object.keys(errors).forEach(function(attr) {
         errors[attr].forEach(function(error) {
           $('#task_' + attr).after('<div class="field_with_errors"><small class="text-danger">' + error + '</small></div>');
-        })
+        });
       });
     });
 });

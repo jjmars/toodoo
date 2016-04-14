@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: toodoo_production
-  username: toodoo
-  password: <%= ENV['TOODOO_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
