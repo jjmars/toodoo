@@ -6,7 +6,7 @@ Task list SPA in Ruby on Rails
 Ruby, Rails and database
 ---
 
-* MRI Ruby 2.2.3
+* MRI Ruby 2.2.2
 * Rails 4.2.4
 * Postgresql
 
@@ -20,7 +20,7 @@ Deployment
 
 Before deploying to production, deploy to staging:
 
-* Commit to `release`
+* Commit to `release/v*.*.*`
 * Open Heroku dashboard and deploy to [http://apptoodoo-staging.herokuapp.com](http://apptoodoo-staging.herokuapp.com)
 * Migrate the database schema if needed
 
@@ -33,10 +33,10 @@ Fix any issues that arise. When the app is ready, deploy to production:
 Versioning
 ---
 
+* Commit features-in-progress to `feature/*`
 * Commit complete features to `develop`
-* Commit **staging** versions to `release`
+* Commit **staging** versions to `release/v*.*.*`
 * Commit **production** versions to `master`
-* Commit features-in-progress **locally** to any other branch. **DON'T PUSH THESE TO ORIGIN.**
 
 License
 ---
