@@ -25,7 +25,7 @@
     <div class="tasks">
       <% if @todo.count == 0 %>
       <div class="alert alert-warning">
-        <p><strong>No tasks to do...</strong> Create a new task in the form above</p>
+        <p><strong>No tasks to do...</strong> Create a <strong>new task</strong> in the form above</p>
       </div>
       <% else %>
       <%= render :partial => "task", :collection => @todo, :as => :task %>
@@ -42,7 +42,7 @@
     <div class="tasks">
       <% if @doin.count == 0 %>
       <div class="alert alert-info">
-        <p><strong>Doing no tasks...</strong> Start a task in "To Do"</p>
+        <p><strong>Doing no tasks...</strong> Start a task in <strong>To Do</strong></p>
       </div>
       <% else %>
       <%= render :partial => "task", :collection => @doin, :as => :task %>
@@ -59,7 +59,7 @@
     <div class="tasks">
       <% if @done.count == 0 %>
       <div class="alert alert-success">
-        <p><strong>No tasks done...</strong> Finish a task in "Doing"</p>
+        <p><strong>No tasks done...</strong> Finish a task in <strong>Doing</strong></p>
       </div>
       <% else %>
       <%= render :partial => "task", :collection => @done, :as => :task %>
