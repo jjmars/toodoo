@@ -10,6 +10,17 @@ Ruby, Rails and database
 * Rails 4.2.4
 * Postgresql
 
+Setup
+---
+
+Make sure you have installed the dependencies above then execute:
+
+```
+bin/setup
+```
+
+And you are good to go with `rails s`.
+
 Test suite
 ---
 
